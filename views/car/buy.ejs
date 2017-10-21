@@ -1,0 +1,224 @@
+<% layout('layout2') %>
+
+<div class="wrapper">
+    <div class="row buy-content">
+        <!-- Start Searchbar -->
+        <div class="col-12 col-lg-3 side-search-menu">
+            <h3>ค้นหารถมือสอง</h3>
+            <form method="GET" action="/find">
+                <label>ราคา (บาท)</label>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="ขั้นต่ำ" name="minprice">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="ไม่เกิน" name="maxprice">
+                    </div>
+                </div>
+                <hr>
+
+                <label>ปี</label>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="ขั้นต่ำ" name="minyear">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="ไม่เกิน" name="maxyear">
+                    </div>
+                </div>
+                <hr>
+
+                <label>เลขไมล์ (กม.)</label>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="ขั้นต่ำ" name="minmileage">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="ไม่เกิน" name="maxmileage">
+                    </div>
+                </div>
+                <hr>
+                
+                
+                <div class="form-group">
+                    <label>จังหวัดที่นัดดูรถ</label>
+                    <select id="locationProvince" class="form-control" name="locationProvince">
+                        <option value="">--- เลือกจังหวัด ---</option>
+                        <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                        <option value="กระบี่">กระบี่</option>
+                        <option value="กาญจนบุรี">กาญจนบุรี</option>
+                        <option value="กาฬสินธุ์">กาฬสินธุ์</option>
+                        <option value="กำแพงเพชร">กำแพงเพชร</option>
+                        <option value="ขอนแก่น">ขอนแก่น</option>
+                        <option value="จันทบุรี">จันทบุรี</option>
+                        <option value="ฉะเชิงเทรา">ฉะเชิงเทรา</option>
+                        <option value="ชลบุรี">ชลบุรี</option>
+                        <option value="ชัยนาท">ชัยนาท</option>
+                        <option value="ชัยภูมิ">ชัยภูมิ</option>
+                        <option value="ชุมพร">ชุมพร</option>
+                        <option value="เชียงราย">เชียงราย</option>
+                        <option value="เชียงใหม่">เชียงใหม่</option>
+                        <option value="ตรัง">ตรัง</option>
+                        <option value="ตราด">ตราด</option>
+                        <option value="ตาก">ตาก</option>
+                        <option value="นครนายก">นครนายก</option>
+                        <option value="นครปฐม">นครปฐม</option>
+                        <option value="นครพนม">นครพนม</option>
+                        <option value="นครราชสีมา">นครราชสีมา</option>
+                        <option value="นครศรีธรรมราช">นครศรีธรรมราช</option>
+                        <option value="นครสวรรค์">นครสวรรค์</option>
+                        <option value="นนทบุรี">นนทบุรี</option>
+                        <option value="นราธิวาส">นราธิวาส</option>
+                        <option value="น่าน">น่าน</option>
+                        <option value="บึงกาฬ">บึงกาฬ</option>
+                        <option value="บุรีรัมย์">บุรีรัมย์</option>
+                        <option value="ปทุมธานี">ปทุมธานี</option>
+                        <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์</option>
+                        <option value="ปราจีนบุรี">ปราจีนบุรี</option>
+                        <option value="ปัตตานี">ปัตตานี</option>
+                        <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา</option>
+                        <option value="พังงา">พังงา</option>
+                        <option value="พัทลุง">พัทลุง</option>
+                        <option value="พิจิตร">พิจิตร</option>
+                        <option value="พิษณุโลก">พิษณุโลก</option>
+                        <option value="เพชรบุรี">เพชรบุรี</option>
+                        <option value="เพชรบูรณ์">เพชรบูรณ์</option>
+                        <option value="แพร่">แพร่</option>
+                        <option value="พะเยา">พะเยา</option>
+                        <option value="ภูเก็ต">ภูเก็ต</option>
+                        <option value="มหาสารคาม">มหาสารคาม</option>
+                        <option value="มุกดาหาร">มุกดาหาร</option>
+                        <option value="แม่ฮ่องสอน">แม่ฮ่องสอน</option>
+                        <option value="ยะลา">ยะลา</option>
+                        <option value="ยโสธร">ยโสธร</option>
+                        <option value="ร้อยเอ็ด">ร้อยเอ็ด</option>
+                        <option value="ระนอง">ระนอง</option>
+                        <option value="ระยอง">ระยอง</option>
+                        <option value="ราชบุรี">ราชบุรี</option>
+                        <option value="ลพบุรี">ลพบุรี</option>
+                        <option value="ลำปาง">ลำปาง</option>
+                        <option value="ลำพูน">ลำพูน</option>
+                        <option value="เลย">เลย</option>
+                        <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                        <option value="สกลนคร">สกลนคร</option>
+                        <option value="สงขลา">สงขลา</option>
+                        <option value="สตูล">สตูล</option>
+                        <option value="สมุทรปราการ">สมุทรปราการ</option>
+                        <option value="สมุทรสงคราม">สมุทรสงคราม</option>
+                        <option value="สมุทรสาคร">สมุทรสาคร</option>
+                        <option value="สระแก้ว">สระแก้ว</option>
+                        <option value="สระบุรี">สระบุรี</option>
+                        <option value="สิงห์บุรี">สิงห์บุรี</option>
+                        <option value="สุโขทัย">สุโขทัย</option>
+                        <option value="สุพรรณบุรี">สุพรรณบุรี</option>
+                        <option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
+                        <option value="สุรินทร์">สุรินทร์</option>
+                        <option value="หนองคาย">หนองคาย</option>
+                        <option value="หนองบัวลำภู">หนองบัวลำภู</option>
+                        <option value="อ่างทอง">อ่างทอง</option>
+                        <option value="อุดรธานี">อุดรธานี</option>
+                        <option value="อุทัยธานี">อุทัยธานี</option>
+                        <option value="อุตรดิตถ์">อุตรดิตถ์</option>
+                        <option value="อุบลราชธานี">อุบลราชธานี</option>
+                        <option value="อำนาจเจริญ">อำนาจเจริญ</option>
+                    </select>
+                </div>
+                <hr>
+                
+                <input class="btn btn-primary btn-block" type="submit" value="ค้นหาด้วยตัวกรอง">
+                <br>
+            </form>
+            <!-- % include searchbar %-->
+        </div> <!-- End Searchbar -->
+
+        <div class="col-12 col-lg-9">
+            <!-- search text -->
+            <div class="row top-search-menu">
+                <div class="col-8">
+                    <form method="post" action="/search">
+                        <div class="row">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="search" placeholder="ค้นหารถที่สนใจ เช่น Toyota, Honda, Civic" style="height: 38px;">
+                                <span class="input-group-btn">
+                                    <input type="submit" class="btn btn-primary" value="ค้นหา"> 
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- search text -->
+                <div class="col-4">
+                    <select class="form-control" name="criteriaSort">
+                        <option>--- เรียง ---</option>
+                        <option value="priceMintoMax">เรียงจากราคาน้อยไปมาก</option>
+                        <option value="priceMaxtoMin">เรียงจากราคามากไปน้อย</option>
+                        <option value="yearMintoMax">เรียงจากปีเก่าไปปีล่าสุด</option>
+                        <option value="yearMaxtoMin">เรียงจากปีล่าสุดไปปีเก่า</option>
+                        <option value="mileageMintoMax">เรียงจากเลขไมล์น้อยไปเยอะ</option>
+                        <option value="mileageMaxtoMin">เรียงจากเลขไมล์เยอะไปน้อย</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <% for (var i=0;i<data.length;i++) { %>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card catalog-card">
+                            <a href="/car/<%= data[i]._id %>">
+                                <img class="card-img-top" src="/<%= data[i].image[0].filename %>">
+                            </a>
+                            <div>
+                                <p class="catalog-make" class="card-text catalog-make"><%= data[i].make %> <%= data[i].model %> ปี <%= data[i].year %> </p>
+                                <p class="catalog-price" class="card-text catalog-price"><%= data[i].price %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div> <!-- end catalog-row -->
+
+            <!-- Pagination -->
+            <nav aria-label="Page navigation example">
+                <% if (pages > 0) { %>
+                    <ul class="pagination justify-content-center">
+                        <% if (current == 1) { %>
+                            <li class="page-item disabled"><a class="page-link">First</a></li>
+                        <% } else { %>
+                            <li class="page-item"><a class="page-link" href="/page/1">First</a></li>
+                        <% } %>
+                        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                        <% if (i !== 1) { %>
+                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                        <% } %>
+                        <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                            <% if (i == current) { %>
+                                <li class="page-item active"><a class="page-link"><%= i %></a></li>
+                            <% } else { %>
+                                <li class="page-item"><a class="page-link" href="/page/<%= i %>"><%= i %></a></li>
+                            <% } %>
+                            <% if (i == Number(current) + 4 && i < pages) { %>
+                                <li class="page-item disabled"><a class="page-link">...</a></li>
+                            <% } %>
+                        <% } %>
+                        <% if (current == pages) { %>
+                            <li class="page-item disabled"><a class="page-link">Last</a></li>
+                        <% } else { %>
+                            <li class="page-item"><a class="page-link" href="/page/<%= pages %>">Last</a></li>
+                        <% } %>
+                    </ul>
+                <% } %>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- Algolia 
+
+    https://community.algolia.com/marvel-search/#
+    https://github.com/algolia/marvel-search
+
+    http://searchstone.io/?q=&dFR%5Blang%5D%5B0%5D=enUS&fR%5Bset%5D%5B0%5D=CORE&is_v=1
+    https://github.com/shipow/searchstone
+
+-->

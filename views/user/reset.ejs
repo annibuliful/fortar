@@ -1,0 +1,44 @@
+<% layout('layout') %>
+
+<div class="wrapper login-main">
+    <div class="row justify-content-center">
+        <div class="card login-card">
+            <div class="card-body">
+                <h3>แก้ไขรหัสผ่านใหม่</h3>
+                <img src="/images/logo.png" alt="Showroomrod">
+                <p>กรุณากรอกรหัสผ่านใหม่</p>
+
+                <% if(hasErrors) { %>
+                    <% for (var i=0; i< messages.length; i++) { %>
+                        <div class="alert alert-danger">
+                            <a href="" class="close" data-dismiss="alert" aria-lable="close">
+                                &times;
+                            </a>
+                            <%- messages[i] %>
+                        </div>
+                    <% } %>
+                <% } %>
+            
+                <% if(noErrors) { %>
+                    <div class="alert alert-success">
+                        <a href="" class="close" data-dismiss="alert" aria-lable="close">
+                            &times;
+                        </a>
+                        <%- success %>
+                    </div>
+                <% } %>
+                
+                <br>
+                <form method="POST">
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="รหัสผ่าน">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="cpassword" class="form-control" placeholder="ยืนยันรหัสผ่านอีกครั้ง">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">เปลี่ยนรหัสผ่าน</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

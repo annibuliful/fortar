@@ -1,0 +1,88 @@
+<% layout('layout') %>
+
+<div class="">
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <div class="col-12 profile-menu">
+                <div class="">
+                    <img class="" src="<%= user.profilePic %>" alt="Profile Picture">
+                </div>
+                <div>
+                    <h6><i class="fa fa-user-o" aria-hidden="true"></i> <%= user.name %></h6>
+                    <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= user.email %></h6>
+                    <% if (user.tel == undefined) { %>
+                        <br>
+                        <h6 style="color: red">** คุณสามารถเพิ่มเบอร์โทรติดต่อกลับได้ที่เมนู "เปลี่ยนแปลงข้อมูลส่วนตัว" ด้านล่าง **</h6>
+                        <br>
+                    <% } else { %>
+                        <h6><i class="fa fa-mobile fa-lg" aria-hidden="true"></i> <%= user.tel %></h6>
+                    <% } %>
+                </div>
+                <div>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="/myshowroom">รถที่ฉันประกาศขาย</a>
+                        <a class="nav-link active" href="/profile">เปลี่ยนแปลงข้อมูลส่วนตัว</a>
+                        <a class="nav-link" href="/logout">ออกจากระบบ</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-9">
+            <div class="col-12">
+                <div class="addcar-button">
+                    <a href="/sell" class="btn bg-success btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> อยากลงขายรถ</a>
+                </div>
+            </div>
+            <div class="col-12">
+
+                <% if(noErrors) { %>
+                    <div class="alert alert-info">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">
+                            &times;
+                        </a>
+                        <%= success %>
+                    </div>
+                <% } %>
+
+                <form method="post" class="profile-section">
+                    <h4>ข้อมูลติดต่อของคุณ</h4>
+                    <p>** กรุณาให้ข้อมูลตามความจริงเพื่อความสะดวกในการติดต่อซื้อขายรถ</p><br>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">ชื่อ-สกุล</label>
+                        <div class="col-10">
+                            <input type="text" class="form-control" placeholder="<%= user.name %>" name="name">
+                        </div>
+                    </div>
+
+                    <% if (user.tel == undefined) { %>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">เบอร์มือถือ</label>
+                            <div class="col-10">
+                                <input type="text" class="form-control" placeholder="" name="tel">
+                            </div>
+                        </div>  
+                    <% } else { %>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">เบอร์มือถือ</label>
+                            <div class="col-10">
+                                <input type="text" class="form-control" placeholder="<%= user.tel %>" name="tel">
+                            </div>
+                        </div>
+                    <% } %>
+
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">อีเมล์</label>
+                        <div class="col-10">
+                            <input type="email" class="form-control" placeholder="<%= user.email %>" name="email">
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">ยืนยันการเปลี่ยนแแปลง</button>
+                    <br>
+                    <br>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

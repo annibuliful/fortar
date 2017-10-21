@@ -1,0 +1,70 @@
+<% layout('layout') %>
+
+<div class="">
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <div class="col-12 profile-menu">
+                <div class="">
+                    <img class="" src="<%= user.profilePic %>" alt="Profile Picture">
+                </div>
+                <div>
+                    <h6><i class="fa fa-user-o" aria-hidden="true"></i> <%= user.name %></h6>
+                    <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= user.email %></h6>
+                    <% if (user.tel == undefined) { %>
+                        <br>
+                        <h6 style="color: red">** คุณสามารถเพิ่มเบอร์โทรติดต่อกลับได้ที่เมนู "เปลี่ยนแปลงข้อมูลส่วนตัว" ด้านล่าง **</h6>
+                        <br>
+                    <% } else { %>
+                        <h6><i class="fa fa-mobile fa-lg" aria-hidden="true"></i> <%= user.tel %></h6>
+                    <% } %>
+                </div>
+                <div>
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="/myshowroom">รถที่ฉันประกาศขาย</a>
+                        <a class="nav-link" href="/profile">เปลี่ยนแปลงข้อมูลส่วนตัว</a>
+                        <a class="nav-link" href="/logout">ออกจากระบบ</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-9">
+            <div class="col-12 updatecar-section">
+                <h4>แก้ไขข้อมูลรถที่ประกาศขาย</h4>
+                <img class="" src="/<%= data.image[0].filename %>"/>
+                <form method="post">
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">ยี่ห้อ</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" placeholder="<%= data.make %>" name="make">
+                        </div>
+                    </div>
+            
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">รุ่นรถ</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" placeholder="<%= data.model %>" name="model">
+                        </div>    
+                    </div>
+            
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">ราคาขาย</label>
+                        <div class="col-9 input-group">
+                            <input type="text" class="form-control" placeholder="<%= data.price %>" name="price">
+                            <span class="input-group-addon">บาท</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">รายละเอียดรถ</label>
+                        <div class="col-9">
+                            <textarea rows="5" class="form-control" placeholder="<%= data.detail %>" name="detail"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">ยืนยันแก้ไขข้อมูลรถ</button>
+                </form>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>

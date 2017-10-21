@@ -1,0 +1,49 @@
+<% layout('layout2') %>
+
+<div class="wrapper login-main">
+    <div class="row justify-content-center">
+        <div class="card login-card">
+            <div class="card-body">
+                <h3>สมัครสมาชิก</h3>
+                <img src="/images/logo.png" alt="Showroomrod">
+                <p>สมัครสมาชิกเพื่อช่วยให้คุณขายรถนสะดวกยิ่งขึ้น</p>
+
+                <% if(hasErrors) { %>
+                    <% for (var i=0; i< messages.length; i++) { %>
+                        <div class="alert alert-danger">
+                            <a href="" class="close" data-dismiss="alert" aria-lable="close">
+                                &times;
+                            </a>
+                            <%- messages[i] %>
+                        </div>
+                    <% } %>
+                <% } %>
+                
+                <br>
+                <a href="/auth/facebook" class="btn btn-primary btn-block facebook-btn">สมัครสมาชิกด้วย Facebook</a>
+                <h6 class="login-line-break"><span>หรือ</span></h6>
+                <form method="POST" action="/signup">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="ชื่อ สกุล">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="tel" class="form-control" placeholder="เบอร์มือถือ">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="อีเมล์">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="รหัสผ่าน">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">สมัครสมาชิก</button>
+                </form>
+                <br>
+                <br>
+                <div class="switch-page">
+                    <span>เคยสมัครสมาชิกแล้ว?</span> &ensp;
+                    <a class="btn btn-outline-primary btn-sm" href="/login">เข้าสู่ระบบ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

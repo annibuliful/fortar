@@ -1,0 +1,51 @@
+<% layout('layout') %>
+
+<div class="wrapper login-main">
+    <div class="row justify-content-center">
+        <div class="card login-card">
+            <div class="card-body">
+                <h3>เข้าสู่ระบบ</h3>
+                <img src="/images/logo.png" alt="Showroomrod">
+                <p>เข้าสู่ระบบเพื่อช่วยให้คุณขายรถสะดวกยิ่งขึ้น</p>
+
+                <% if(hasErrors) { %>
+                    <% for (var i=0; i< messages.length; i++) { %>
+                        <div class="alert alert-danger">
+                            <a href="" class="close" data-dismiss="alert" aria-lable="close">
+                                &times;
+                            </a>
+                            <%- messages[i] %>
+                        </div>
+                    <% } %>
+                <% } %>
+                
+                <br>
+                <a href="/auth/facebook" class="btn btn-primary btn-block facebook-btn">เข้าสู่ระบบด้วย Facebook</a>
+                <h6 class="login-line-break"><span>หรือ</span></h6>
+                <form method="POST" action="/login">
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="อีเมล์">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="รหัสผ่าน">
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="rememberme" value="yes">
+                            Remember Me
+                        </label>
+                        <a href="/forgot">ลืมรหัสผ่าน</a>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-block">เข้าสู่ระบบ</button>
+                </form>
+                <br>
+                <br>
+                <div class="switch-page">
+                    <span>ยังไม่เคยเป็นสมาชิก?</span> &ensp;
+                    <a class="btn btn-outline-primary btn-sm" href="/signup">สมัครสมาชิก</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

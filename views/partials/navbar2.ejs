@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <button class="navbar-toggler" style="border: 1px solid #019BFF; padding-bottom: 10px;" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="blue" style="font-size: 16px; margin-bottom: 40px; color: #019BFF">เมนู</span>
+    </button>
+    <a class="navbar-brand" href="/"><img src="/images/logo.png" alt="Showroomrod"></a>
+    <button class="filter-button btn btn-outline-primary btn-sm"><i class="fa fa-filter" aria-hidden="true"></i> ตัวกรอง</button>
+    
+    <div class="collapse navbar-collapse nav-main-header" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item"><a class="nav-link" style="color:#019BFF" href="tel:0628294663"><i class="fa fa-phone" aria-hidden="true"></i> 0628294663</a></li>
+            <li class="nav-item"><a class="nav-link" style="color:#019BFF" href="/buy">ซื้อรถ</a></li>
+            <li class="nav-item"><a class="nav-link" style="color:#019BFF" href="/sell">ขายรถ</a></li>
+            <li class="nav-item"><a class="nav-link" style="color:#019BFF" href="/inspect">ตรวจสอบสภาพรถ</a></li>
+        </ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+            <% if ('undefined' !== typeof user) { %>
+            <li class="nav-item"><a class="nav-link" style="color:#019BFF" href="/myshowroom">โรงรถของฉัน</a></li>
+            <% } else { %>
+            <li class="nav-item"><a class="nav-link" style="color:#019BFF" href="/login">เข้าสู่ระบบ</a></li>
+            <li class="nav-item"><a class="nav-link" style="color:#019BFF" href="/signup">สมัครสมาชิก</a></li>                    
+            <% } %>
+        </ul>
+    </div>
+</nav>

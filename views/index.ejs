@@ -1,0 +1,145 @@
+<% layout('layout') %>
+
+<!-- 
+    <img src="" width"" srcset="photo.png 1x, photo.png 2x, photo.png 3x">
+    Lecture 73
+    <inout pattern="[0-9]*">
+-->
+        
+<div class="wrapper">
+    <!-- pitch-header -->
+    <header> 
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="pitch-header">
+                    <h1>โชว์รูมรถ แหล่งซื้อขายรถมือสอง</h1>
+                    <p>ประกาศขายรถง่ายฟรีเพียง 2 นาที ซื้อขายกันเองโดยตรง ไม่ต้องเสียค่าคนกลาง</p>
+                    <img class="img-fluid" src="/images/bg-main.jpg">
+                    <form method="POST" action="/search">
+                        <div class="row">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="search" placeholder="ค้นหารถที่สนใจ เช่น Toyota, Honda, Civic" style="height: 38px;">
+                                <span class="input-group-btn">
+                                    <input type="submit" class="btn btn-primary" value="ค้นหา"> 
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                    <a href="/sell" class="btn btn-success">อยากขายรถ</a>
+                    <a href="/buy" class="btn btn-primary">หาซื้อรถ</a>    
+                    </div>
+                    <br><br><br><br>
+                </div>
+            </div>
+        </div>
+    </header> <!-- End pitch-header -->
+
+    <!-- navtab -->
+    <div class="navtab">
+        <div class="row">
+            <div class="col-12 col-lg-4">
+                <div class="navtab-box">
+                    <div class="row">
+                        <div class="col-4">
+                            <a href="/sell"><img src="/images/icon-navtab-sell.png"></a>
+                        </div>
+                        <div class="col-7">
+                            <a href="/sell"><h3>อยากขายรถ</h3></a>
+                            <a href="/sell"><p>ลงประกาศขายรถที่นี่ ฟรี ง่าย ใช้เวลาแค่เพียง 2 นาที</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="navtab-box">
+                    <div class="row">
+                        <div class="col-4">
+                            <a href="/buy"><img src="/images/icon-navtab-buy.png"></a>
+                        </div>
+                        <div class="col-7">
+                            <a href="/buy"><h3>หาซื้อรถ</h3></a>
+                            <a href="/buy"><p>ซื้อขายกับเจ้าของเองโดยตรง ไม่ต้องเสียค่าคนกลาง</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="navtab-box-last">
+                    <div class="row">
+                        <div class="col-4">
+                            <a href="/inspect"><img src="/images/icon-navtab-inspect.png"></a>
+                        </div>
+                        <div class="col-7">
+                            <a href="/inspect"><h3>บริการตรวจสอบ</h3></a>
+                            <a href="/inspect"><p>มีบริการช่วยเช็คสภาพรถ ป้องกันการถูกหลอก ถูกย้อม</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End navtab -->
+
+    <!-- main how-sell -->
+    <main class="how-sell">
+        <h2>ลงขายรถกับ showroomrod ง่ายแค่</h2>
+        <p>ขายรถต้องง่ายนั่นคือเป้าหมายของเรา</p>
+        <div class="row">
+            <div class="col-12 col-md-4 how-sell-box">
+                <a href="http://line.me/ti/p/%40showroomrod" target="_blank"><img class="" src="/images/icon-sell-line.png"></a>
+                <h3>1.เพิ่มเพื่อน</h3>
+                <p>กดเพิ่มเพื่อน @showroomrod (ใส่ @ ด้วยน่ะ)</p>
+            </div>
+            <div class="col-12 col-md-4 how-sell-box">
+                <img class="" src="/images/icon-sell-post.png">
+                <h3>2.ส่งรูปรถ</h3>
+                <p>ส่งรูปรถที่ต้องการลงขายผ่าน line ให้กับเรา</p>
+            </div>
+            <div class="col-12 col-md-4 how-sell-box">
+                <img class="" src="/images/icon-sell-done.png">
+                <h3>3.เรียบร้อย</h3>
+                <p>เราจัดการลงขายรถให้คุณฟรี ไม่มีค่าใช้จ่ายแอบแฝงทั้งสิ้น</p>
+            </div>
+        </div>
+        <h6 class="how-sell-line-break"><span>หรือ</span></h6>
+       <div class="how-sell-tag">
+            <h5 class="">ถ้าต้องการลงขายด้วยตัวเองก็ง่าย ฟรี</h5>
+            <a href="/sell" class="btn btn-success">อยากลงขายรถ</a>
+        </div>
+    </main> <!-- end main how-sell -->
+
+    <!-- testimonial -->
+    <div class="testimonial">
+        <h2>คำบอกเล่าจากผู้ใช้งานโชว์รูมรถ</h2>
+        <div class="row testimonial-row">
+            <div class="col-12 col-md-4"> 
+                <div class="card testimonial-card">
+                    <div class="card-body">
+                        <img class="mar-btm-30" src="/images/testimonial1.jpg">
+                        <h5>คุณสมบูรณ์ พ่อค้า</h5>
+                        <p>"ผมไม่ค่อยถนัดเรื่องพวกอินเตอร์เน็ตซื้อขายออนไลน์ โชว์รูมรถบริการช่วยเหลือขายรถให้ตั้งแต่ลงขายจนถึงปิดการขายได้ ขอบคุณครับ"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4"> 
+                <div class="card testimonial-card">
+                    <div class="card-body pad-50">
+                        <img class="mar-btm-30" src="/images/testimonial2.jpg">
+                        <h5>คุณอี้ด ทันตแพทย์</h5>
+                        <p>"ฉันอยากได้รถมือสองแต่ไม่ค่อยมีเวลาออกตามหารถ แต่ไม่ค่อยมีความรู้เรื่องการดูรถ ฉันโทรหาโชว์รูมรถมาช่วยตรวจสอบสภาพรถก่อนการซื้อ รู้สึกโชคดึมากที่ไม่โดนหลอกให้ซื้อรถย้อมแมว รู้สึกตัดสินใจไม่ผิดเลยที่ใช้บริการตรวจสอบสภาพรถ"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4"> 
+                <div class="card testimonial-card">
+                    <div class="card-body pad-50">
+                        <img class="mar-btm-30" src="/images/testimonial3.jpg">
+                        <h5>คุณจ้ะจ๋า เจ้าของธุรกิจ</h5>
+                        <p>"ฉันต้องการขายรถเก่าที่ใช้มาสิบปี ฉันโทรหาโชว์รูมรถช่วยประกาสขายรถให้ แค่ในวันเดียวก็ขายรถได้แล้วค่ะ ขอบคุณคะ"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <a href="/buy" class="btn btn-primary">หาซื้อรถ</a>
+    </div>
+</div>

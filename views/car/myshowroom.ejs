@@ -1,0 +1,101 @@
+<% layout('layout') %>
+
+<div class="">
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <div class="col-12 profile-menu">
+                <div class="">
+                    <img class="" src="<%= user.profilePic %>" alt="Profile Picture">
+                </div>
+                <div>
+                    <h6><i class="fa fa-user-o" aria-hidden="true"></i> <%= user.name %></h6>
+                    <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= user.email %></h6>
+                    <% if (user.tel == undefined) { %>
+                        <br>
+                        <h6 style="color: red">** คุณสามารถเพิ่มเบอร์โทรติดต่อกลับได้ที่เมนู "เปลี่ยนแปลงข้อมูลส่วนตัว" ด้านล่าง **</h6>
+                        <br>
+                    <% } else { %>
+                        <h6><i class="fa fa-mobile fa-lg" aria-hidden="true"></i> <%= user.tel %></h6>
+                    <% } %>
+                </div>
+                <div>
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="/myshowroom">รถที่ฉันประกาศขาย</a>
+                        <a class="nav-link" href="/profile">เปลี่ยนแปลงข้อมูลส่วนตัว</a>
+                        <a class="nav-link" href="/logout">ออกจากระบบ</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-9">
+            <div class="col-12">
+                <div class="addcar-button">
+                    <a href="/sell" class="btn bg-success btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> อยากลงขายรถ</a>
+                </div>
+            </div>
+            <% if (data.length == 0) { %>
+            <div class="col-12"> 
+                <h4>คุณยังไม่ได้ประกาศลงขายรถ</h4>
+            </div>
+            <% } else { %>
+            <div class="col-12">
+                <h4>รถที่ลงประกาศขายของคุณ</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered"> 
+                        <thead class="table-active">
+                            <tr>
+                                <th>คัน</th>
+                                <th>รูปถ่าย</th>
+                                <th>รายละเอียดรถที่ประกาศขาย</th>
+                                <th>แก้ไขข้อมูลรถ</th>
+                                <th>ลบประกาศ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (var i=0; i< data.length; i++) { %>
+                            <tr>
+                                <td><%= i+1 %></td>
+                                <td><a href="/car/<%= data[i]._id %>"><img src="<%= data[i].image[0].filename %>" style="width:150px"></a></td>
+                                <td>
+                                    <%= data[i].make %> <%= data[i].model %> ปี <%= data[i].year %> <br>
+                                    ราคาขาย <%= data[i].price %> บาท<br>
+                                    <hr>
+                                    <%= data[i].detail %> </td> <br>
+                                <td><a href="/updatecar/<%= data[i]._id %>" class="btn btn-warning">แก้ไข</a></td>
+                                <!--<td><a href="/removecar/<%= data[i]._id %>" class="btn btn-sm btn-danger">ลบ</a></td>-->
+                                <td><button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">ลบ</button></td>
+
+                                <!-- Delete Modal -->
+                                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel">ลบประกาศขาย</h5>
+                                            <button class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            คุณต้องการลบประกาศขายรถคันนี้ใช่หรือไม่?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                                            <a href="/removecar/<%= data[i]._id %>" class="btn btn-danger">ลบประกาศขาย</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <% } %>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>

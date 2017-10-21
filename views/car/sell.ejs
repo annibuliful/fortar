@@ -1,0 +1,298 @@
+<% layout('layout') %>
+
+<div class="wrapper">
+    <div class="row sell-main">
+        <div class="col-12 col-md-5 col-lg-6 sell-pitch">
+            <h3>ลงขายรถที่โชว์รูมรถฟรี</h3>
+            <p>ลงขายด้วยตัวเองก็ง่าย หรือให่้เราลงขายก็ฟรีเพียงโทร 062-829-4663</p>
+        </div>
+        <div class="col-12 col-md-7 col-lg-6">
+            <div class="sell-card">
+            <h3>ลงขายรถง่ายๆแค่ 2 นาที</h3>
+
+            <% if(noErrors) { %>
+                <div class="alert alert-success">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">
+                        &times;
+                    </a>
+                    <%= success %>
+                </div>
+            <% } %>
+
+            <!-- action="/sell" is needed? -->
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>รุ่นรถ</label>  
+                    <select id="make" class="form-control" name="make">
+                        <optgroup label="รถยอดนิยม">
+                            <option value="0">--- เลือกยี่ห้อ ---</option>
+                            <option value="TOYOTA">TOYOTA</option>
+                            <option value="HONDA">HONDA</option>
+                            <option value="NISSAN">NISSAN</option>
+                            <option value="MITSUBISHI">MITSUBISHI</option>
+                            <option value="BENZ">BENZ</option>
+                            <option value="ISUZU">ISUZU</option>
+                            <option value="BMW">BMW</option>
+                            <option value="CHEVROLET">CHEVROLET</option>
+                            <option value="VOLVO">VOLVO</option>
+                        </optgroup> 
+                        <optgroup label="รุ่นรถตามตัวอักษร">
+                            <option value="ALFA ROMEO">ALFA ROMEO</option>
+                            <option value="ASTON MARTIN">ASTON MARTIN</option>
+                            <option value="AUDI">AUDI</option>
+                            <option value="AUSTIN">AUSTIN</option>
+                            <option value="BENTLEY">BENTLEY</option>
+                            <option value="BUICK">BUICK</option>
+                            <option value="CADILLAC">CADILLAC</option>
+                            <option value="CHERY">CHERY</option>
+                            <option value="CHRYSLER">CHRYSLER</option>
+                            <option value="CITROEN">CITROEN</option>
+                            <option value="DAIHATSU">DAIHATSU</option>
+                            <option value="DAEWOO">DAEWOO</option>
+                            <option value="DEVA">DEVA</option>
+                            <option value="DFM">DFM</option>
+                            <option value="DFSK">DFSK</option>
+                            <option value="DODGE">DODGE</option>
+                            <option value="FERRARI">FERRARI</option>
+                            <option value="FIAT">FIAT</option>
+                            <option value="FOTON">FOTON</option>
+                            <option value="GMC">GMC</option>
+                            <option value="HINO">HINO</option>
+                            <option value="HOLDEN">HOLDEN</option>
+                            <option value="HUMMER">HUMMER</option>
+                            <option value="HYUNDAI">HYUNDAI</option>
+                            <option value="JAGUAR">JAGUAR</option>
+                            <option value="JEEP">JEEP</option>
+                            <option value="KIA">KIA</option>
+                            <option value="LAMBORGHINI">LAMBORGHINI</option>
+                            <option value="LANCIA">LANCIA</option>
+                            <option value="LAND ROVER">LAND ROVER</option>
+                            <option value="LEXUS">LEXUS</option>
+                            <option value="LINCOLN">LINCOLN</option>
+                            <option value="LOTUS">LOTUS</option>
+                            <option value="MASERATI">MASERATI</option>
+                            <option value="MERCURY">MERCURY</option>
+                            <option value="MG">MG</option>
+                            <option value="MINI">MINI</option>
+                            <option value="MITSUOKA">MITSUOKA</option>
+                            <option value="NAZA">NAZA</option>
+                            <option value="NSU">NSU</option>
+                            <option value="OLDSMOBILE">OLDSMOBILE</option>
+                            <option value="OPEL">OPEL</option>
+                            <option value="PEUGEOT">PEUGEOT</option>
+                            <option value="PONTIAC">PONTIAC</option>
+                            <option value="PORSCHE">PORSCHE</option>
+                            <option value="PROTON">PROTON</option>
+                            <option value="RENAULT">RENAULT</option>
+                            <option value="ROLLS-ROYCE">ROLLS-ROYCE</option>
+                            <option value="ROVER">ROVER</option>
+                            <option value="SAAB">SAAB</option>
+                            <option value="SEAT">SEAT</option>
+                            <option value="SKODA">SKODA</option>
+                            <option value="SSANGYONG">SSANGYONG</option>
+                            <option value="SMART">SMART</option>
+                            <option value="SUBARU">SUBARU</option>
+                            <option value="SUZUKI">SUZUKI</option>
+                            <option value="TESLA">TESLA</option>
+                            <option value="TATA">TATA</option>
+                            <option value="THAI RUNG">THAI RUNG</option>
+                            <option value="VOLKSWAGEN">VOLKSWAGEN</option>
+                            <option value="รถยนต์ยี่ห้ออื่นๆ">รถยนต์ยี่ห้ออื่นๆ</option>
+                            <option value="ยานพาหนะอื่นๆ">ยานพาหนะอื่นๆ</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>ยี่ห้อรถ</label>  
+                    <select id="model" class="form-control" name="model"></select>
+                </div>
+
+                <div class="form-group">
+                    <label>ปี</label>
+                    <select class="form-control" name="year">
+                        <option>--- เลือกปี ---</option>
+                        <option>2017</option>
+                        <option>2016</option>
+                        <option>2015</option>
+                        <option>2014</option>
+                        <option>2013</option>
+                        <option>2012</option>
+                        <option>2011</option>
+                        <option>2010</option>
+                        <option>2009</option>
+                        <option>2008</option>
+                        <option>2007</option>
+                        <option>2006</option>
+                        <option>2005</option>
+                        <option>2004</option>
+                        <option>2003</option>
+                        <option>2002</option>
+                        <option>2001</option>
+                        <option>2000</option>
+                        <option>1999</option>
+                        <option>1998</option>
+                        <option>1997</option>
+                        <option>1996</option>
+                        <option>1995</option>
+                        <option>1994</option>
+                        <option>1993</option>
+                        <option>1992</option>
+                        <option>1991</option>
+                        <option>1990</option>
+                        <option>1989</option>
+                        <option>1988</option>
+                        <option>1987</option>
+                        <option>1986</option>
+                        <option>1985</option>
+                        <option>1984</option>
+                        <option>1983</option>
+                        <option>1982</option>
+                        <option>1981</option>
+                        <option>1980</option>
+                        <option>1979</option>
+                        <option>1978</option>
+                        <option>1977</option>
+                        <option>1976</option>
+                        <option>1975</option>
+                        <option>1974</option>
+                        <option>1973</option>
+                        <option>1972</option>
+                        <option>1971</option>
+                        <option>1970</option>
+                        <option>1969</option>
+                        <option>1968</option>
+                        <option>1967</option>
+                        <option>1966</option>
+                        <option>1965</option>
+                        <option>1964</option>
+                        <option>1963</option>
+                        <option>1962</option>
+                        <option>1961</option>
+                        <option>1960</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>ระยะเลขไมล์</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="เลขไมล์ เช่น 100000" name="mileage">
+                        <span class="input-group-addon">กม.</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>ราคาที่ต้องการขาย</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="ราคา เช่น 250,000" name="price">
+                        <span class="input-group-addon">บาท</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>จังหวัดที่นัดดูรถ</label>
+                    <select id="locationProvince" class="form-control" name="locationProvince">
+                        <option value="0">--- เลือกจังหวัด ---</option>
+                        <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                        <option value="กระบี่">กระบี่</option>
+                        <option value="กาญจนบุรี">กาญจนบุรี</option>
+                        <option value="กาฬสินธุ์">กาฬสินธุ์</option>
+                        <option value="กำแพงเพชร">กำแพงเพชร</option>
+                        <option value="ขอนแก่น">ขอนแก่น</option>
+                        <option value="จันทบุรี">จันทบุรี</option>
+                        <option value="ฉะเชิงเทรา">ฉะเชิงเทรา</option>
+                        <option value="ชลบุรี">ชลบุรี</option>
+                        <option value="ชัยนาท">ชัยนาท</option>
+                        <option value="ชัยภูมิ">ชัยภูมิ</option>
+                        <option value="ชุมพร">ชุมพร</option>
+                        <option value="เชียงราย">เชียงราย</option>
+                        <option value="เชียงใหม่">เชียงใหม่</option>
+                        <option value="ตรัง">ตรัง</option>
+                        <option value="ตราด">ตราด</option>
+                        <option value="ตาก">ตาก</option>
+                        <option value="นครนายก">นครนายก</option>
+                        <option value="นครปฐม">นครปฐม</option>
+                        <option value="นครพนม">นครพนม</option>
+                        <option value="นครราชสีมา">นครราชสีมา</option>
+                        <option value="นครศรีธรรมราช">นครศรีธรรมราช</option>
+                        <option value="นครสวรรค์">นครสวรรค์</option>
+                        <option value="นนทบุรี">นนทบุรี</option>
+                        <option value="นราธิวาส">นราธิวาส</option>
+                        <option value="น่าน">น่าน</option>
+                        <option value="บึงกาฬ">บึงกาฬ</option>
+                        <option value="บุรีรัมย์">บุรีรัมย์</option>
+                        <option value="ปทุมธานี">ปทุมธานี</option>
+                        <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์</option>
+                        <option value="ปราจีนบุรี">ปราจีนบุรี</option>
+                        <option value="ปัตตานี">ปัตตานี</option>
+                        <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา</option>
+                        <option value="พังงา">พังงา</option>
+                        <option value="พัทลุง">พัทลุง</option>
+                        <option value="พิจิตร">พิจิตร</option>
+                        <option value="พิษณุโลก">พิษณุโลก</option>
+                        <option value="เพชรบุรี">เพชรบุรี</option>
+                        <option value="เพชรบูรณ์">เพชรบูรณ์</option>
+                        <option value="แพร่">แพร่</option>
+                        <option value="พะเยา">พะเยา</option>
+                        <option value="ภูเก็ต">ภูเก็ต</option>
+                        <option value="มหาสารคาม">มหาสารคาม</option>
+                        <option value="มุกดาหาร">มุกดาหาร</option>
+                        <option value="แม่ฮ่องสอน">แม่ฮ่องสอน</option>
+                        <option value="ยะลา">ยะลา</option>
+                        <option value="ยโสธร">ยโสธร</option>
+                        <option value="ร้อยเอ็ด">ร้อยเอ็ด</option>
+                        <option value="ระนอง">ระนอง</option>
+                        <option value="ระยอง">ระยอง</option>
+                        <option value="ราชบุรี">ราชบุรี</option>
+                        <option value="ลพบุรี">ลพบุรี</option>
+                        <option value="ลำปาง">ลำปาง</option>
+                        <option value="ลำพูน">ลำพูน</option>
+                        <option value="เลย">เลย</option>
+                        <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                        <option value="สกลนคร">สกลนคร</option>
+                        <option value="สงขลา">สงขลา</option>
+                        <option value="สตูล">สตูล</option>
+                        <option value="สมุทรปราการ">สมุทรปราการ</option>
+                        <option value="สมุทรสงคราม">สมุทรสงคราม</option>
+                        <option value="สมุทรสาคร">สมุทรสาคร</option>
+                        <option value="สระแก้ว">สระแก้ว</option>
+                        <option value="สระบุรี">สระบุรี</option>
+                        <option value="สิงห์บุรี">สิงห์บุรี</option>
+                        <option value="สุโขทัย">สุโขทัย</option>
+                        <option value="สุพรรณบุรี">สุพรรณบุรี</option>
+                        <option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
+                        <option value="สุรินทร์">สุรินทร์</option>
+                        <option value="หนองคาย">หนองคาย</option>
+                        <option value="หนองบัวลำภู">หนองบัวลำภู</option>
+                        <option value="อ่างทอง">อ่างทอง</option>
+                        <option value="อุดรธานี">อุดรธานี</option>
+                        <option value="อุทัยธานี">อุทัยธานี</option>
+                        <option value="อุตรดิตถ์">อุตรดิตถ์</option>
+                        <option value="อุบลราชธานี">อุบลราชธานี</option>
+                        <option value="อำนาจเจริญ">อำนาจเจริญ</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>อำเภอ/เขตที่นัดดูรถ</label>  
+                    <select id="locationDistrict" class="form-control" name="locationDistrict"></select>
+                </div>
+
+                <div class="form-group">
+                    <label>รายละเอียดอื่นๆ</label>
+                    <textarea rows="5" class="form-control" placeholder="รายละเอียด เช่น สี ติดแก๊สหรือไม่ เลขทะเบียน รอยตำหนิ" name="detail"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>รูปรถที่ต้องการขาย</label>
+                    <input type="file" name="files" multiple>
+                </div>
+
+    
+                <button type="submit" class="btn btn-primary btn-block">ลงประกาศขาย</button>
+            </form>
+            <p>ติดปัญหาหรือมีข้อสงสัย โทร 062-829-4663</p>
+            </div>
+        </div>    
+    </div>
+</div>
